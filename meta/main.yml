@@ -1,0 +1,10 @@
+galaxy_info:
+  author: Shaun Brady
+  description: Install AWS SSM Agent
+  company: Nimbis Services, Inc.
+
+  license: BSD
+
+  min_ansible_version: 2.1
+
+dependencies: []
