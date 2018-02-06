@@ -1,0 +1,12 @@
+---
+
+- name: Install AWS SSM agent
+  yum:
+    name: https://s3-us-gov-west-1.amazonaws.com/nimbis-platform-public/amazon-ssm-agent.rpm
+    state: present
+
+- name: Start the AWS SSM agent service
+  service:
+    name: amazon-ssm-agent
+    state: started
+    enabled: yes
