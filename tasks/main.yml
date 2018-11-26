@@ -1,5 +1,26 @@
 ---
 
+- name: Set Facts
+  set_fact:
+    deploy_ssh_key: "{{ deploy_ssh_key | default(UNDEFINED) }}"
+
+- name: Create the deploy .ssh directory
+  file:
+    path: /root/.ssh
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Configure the provided SSH deploy key
+  copy:
+    src: "{{ deploy_ssh_key }}"
+    dest: /root/.ssh/authorized_keys
+    owner: root
+    group: root
+    mode: 0644
+  when: deploy_ssh_key != "UNDEFINED"
+
 - name: Install AWS SSM agent
   yum:
     name: https://s3-us-gov-west-1.amazonaws.com/nimbis-platform-public/amazon-ssm-agent.rpm
