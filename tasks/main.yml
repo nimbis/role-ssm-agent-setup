@@ -2,7 +2,7 @@
 
 - name: Install AWS SSM agent
   yum:
-    name: https://s3-us-gov-west-1.amazonaws.com/nimbis-platform-public/amazon-ssm-agent.rpm
+    name: https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
     disable_gpg_check: yes
     state: present
 
